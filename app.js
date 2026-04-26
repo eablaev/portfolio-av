@@ -12,7 +12,7 @@ const lines = document.querySelectorAll('.line');
 
 
 aboutBtnContainer.addEventListener('click', () => {
-    history.pushState(null, '', '#about');
+    history.pushState(null, '', '/portfolio-av/');
     aboutBtnContainer.classList.add('slideOut')
     projectsBtnContainer.classList.add('slideOut');
     messageEl.classList.add('slideOut')
@@ -36,7 +36,7 @@ projectsBtnContainer.addEventListener('click', () => {
 });
 
 closeBtnAbout.addEventListener('click', () => {  
-    history.pushState(null, '', '/');
+    history.pushState(null, '', '/portfolio-av/');
     aboutContent.classList.add('slideOut');
     
     aboutContent.addEventListener('animationend', () => {
@@ -61,7 +61,7 @@ closeBtnAbout.addEventListener('click', () => {
 });
 
 closeBtnProjects.addEventListener('click', () => {  
-    history.pushState(null, '', '/');
+    history.pushState(null, '', '/portfolio-av/');
     projectsContainer.classList.add('slideOut');
     
     projectsContainer.addEventListener('animationend', () => {
