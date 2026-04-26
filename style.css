@@ -1,0 +1,473 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+:root {
+    --mainColor1: #0D0D0D;
+    --mainColor2: #595959;
+    --accentColor1: #BF7B3F;
+    --accentColor2: #110D8C;
+    --textColor: #F2F2F2;
+}
+
+/* general */
+
+body { 
+    padding: 0;
+    margin: 0;
+    color: var(--textColor);
+    font-family: 'Mohave', sans-serif;
+    /* border: .5vw solid var(--mainColor2);    */
+}
+
+header, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainColor1);
+}
+
+header{
+    min-height: 20vh;
+}
+
+main {
+    min-height: 70vh;
+    background-color: var(--mainColor1);
+   
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer {
+    min-height: 10vh;
+    justify-content: left;    
+}
+
+/* header specifics */
+
+
+
+
+
+/* main specifics */
+
+
+/* main content containers styling */
+
+.welcomeMessageContainer {
+    min-width: min(300px, 100vw);
+}
+
+.welcomeMessageContainer,
+.aboutContent,
+.projectsContainer {
+    display: none;
+    justify-content: center;
+    padding: 11vw;
+    margin: 0 2vw;  
+    animation: slideInLeftCenter 1s ease-in-out ; 
+}
+
+.aboutContent,
+.projectsContainer {
+    border: 1px solid var(--mainColor2);
+    position: relative;
+}
+
+.closeBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: max(3vw, 20px);
+    height: max(3vw, 20px);   
+}
+
+.closeBtn::after {
+    content: '';
+    display: block;
+    width: 100%; /* Adjust the width to control the length of the line */
+    height: .1vw; /* Adjust the height to control the thickness of the line */
+    background-color: aliceblue; /* Set the line color */
+    position: absolute;
+    transform: rotate(135deg);
+}
+.closeBtn::before {
+    content: '';
+    display: block;
+    width: 100%; /* Adjust the width to control the length of the line */
+    height: .1vw; /* Adjust the height to control the thickness of the line */
+    background-color: aliceblue; /* Set the line color */
+    position: absolute;
+    transform: rotate(-135deg) ;
+} 
+.closeBtn:hover::before,
+.closeBtn:hover::after {
+    background-color: var(--accentColor1);
+    scale: 1.2;
+}
+
+.aboutContent.slideOut,
+.projectsContainer.slideOut {
+    animation: slideOutL 1s ease-in-out forwards;
+}
+
+.welcomeMessageContainer {
+    opacity: 1;
+    transition: 1s ease-in-out;
+}
+
+.welcomeMessageContainer.slideOut {
+    opacity: 0;
+}
+
+.welcomeMessageContainer.show,
+.aboutContent.show {
+    display: flex;
+    align-items: center;  
+}
+
+.projectsContainer.show  {
+    display: grid;
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+}
+
+.project {
+    border: .3vw solid var(--mainColor2);
+}
+
+
+
+/* buttons styling */
+
+.projectsBtnContainer {
+    margin-left: auto;/* pushing about and projects to left and right  */
+}
+.aboutBtnContainer {
+    margin-right: auto;/* pushing about and projects to left and right  */
+}
+
+.aboutBtnContainer,
+.projectsBtnContainer {
+    display: flex;
+    align-items: center;  
+}
+
+.aboutBtnContainer.slideOut {
+    animation: slideOutL 1s ease-in-out forwards;
+}
+.aboutBtnContainer.slideIn {
+    animation: slideInR 1s ease forwards;
+}
+.projectsBtnContainer.slideIn {
+    animation: slideInL 1s ease forwards;
+}
+
+.projectsBtnContainer.slideOut {
+    animation: slideOutR 1s ease-in-out forwards;
+}
+
+.projectsBtnContainer.slideIn {
+    animation: slideInL 1s ease;
+}
+
+.aboutBtnContainer h3,
+.projectsBtnContainer h3 {
+    border: .1vw solid #373737;;
+    padding: 1vw 5vw;
+    margin: 0;
+    min-width: max(100px, 20vw);
+    text-align: center;
+    transition: .1s ease-in-out;
+}
+
+.aboutBtnContainer h3 {  
+   transform: translateX(-.6vw); 
+   animation: slideInBottomUp 1s ease ;  
+}
+
+.projectsBtnContainer h3 {
+    transform: translateX(.6vw);  
+    animation: slideInTopDown 1s ease ; 
+}
+
+.aboutBtnContainer h3:hover,
+.projectsBtnContainer h3:hover { 
+    background-color:#F2F2F215; 
+    cursor: pointer;
+    transform: translateX(0);
+    border-color:  #BF7B3F33;
+  
+}
+
+/* test */
+.lineDecorationContainer {
+
+    /* border: 1px solid white; */
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    height: 50vw;
+
+}
+.line{
+   
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    
+}
+
+.line::before{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 0;
+    background-color: var(--mainColor1);
+    opacity: .4;
+    position: absolute;
+    top: 0; /* Position the line at the bottom of the container */
+    left: 0; /* Adjust the starting point of the line */
+    opacity: 0;
+    transition: 1s ease-in;
+    animation: rotateLines 2s ease-in-out infinite alternate;
+   
+}
+.line::after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 0; /* Adjust the height to control the thickness of the line */
+    background-color: var(--mainColor1);
+    opacity: .3;
+    position: absolute;
+    top: 0; /* Position the line at the bottom of the container */
+    right: 50%; /* Adjust the starting point of the line */
+    opacity: 0;
+    transition: 1s ease-in-out;
+    animation: rotateLines 3s 2s ease-in-out infinite alternate;
+   
+} 
+
+.line.show:before {
+   opacity: .4;
+   
+   height: 100%;
+  
+}
+.line.show:after {
+   opacity: .4;
+   height: 100%;
+}
+/* test */
+
+
+/* footer */
+
+.footerSocials {
+   padding: 1vw;
+}
+
+footer i {
+    font-size: 1.5rem;
+    color:#afafaf;
+    margin: .4vw;
+}
+
+footer i:hover {
+    cursor: pointer;
+    color: var(--accentColor1);
+    /* opacity: .3; */
+}
+
+@keyframes rotateLines {
+    from {
+        height: 0;
+    
+        transform-origin: 0;
+      
+    }
+    to {
+        height: 100%;
+       transform-origin: 50%;
+     
+        background-color: #BF7B3F33;
+        
+    }
+    
+}
+
+@keyframes slideInTopDown { /* animating about on the load  */
+    from {
+        opacity: 0;
+        transform: translateY(-1000%);
+    }
+    80% {
+        transform: translateY(0) translateX(0); 
+        opacity: .8;
+    }
+    to {
+        transform: translateY(0) translateX(.6vw); 
+        opacity: 1;
+    }
+}
+@keyframes slideInBottomUp {
+    from {
+        transform: translateY(1000%);
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(0) translateX(0); 
+        opacity: .8;
+    }
+    to {
+        transform: translateY(0) translateX(-.6vw); 
+        opacity: 1;
+    }
+}
+@keyframes slideInLeftCenter { 
+    from {
+        transform: translateX(-100%);   
+        opacity: 0;
+    } 
+    to {
+        transform: translateX(0);
+        opacity: 1;  
+    }
+}
+@keyframes slideOutL { 
+    from {
+
+    }
+    to {
+        transform: translateX(-130%);
+    }
+}
+@keyframes slideInR {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideInL {
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideOutR {
+    from {
+
+    }
+    to {
+        transform: translateX(200%);
+    }
+}
+
+
+
+/* changes */
+
+.projectsContainer.show {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    padding: 2vw;
+    gap: 1.5rem;
+}
+
+.qsys-video {
+    width: 100%;
+}
+
+.qsys-video iframe {
+    width: 100%;
+    height: 65vh;
+    display: block;
+}
+
+.qsys-bottom {
+    display: flex;
+    gap: 1.5rem;
+    height: 30vh;
+}
+
+.qsys-screenshots {
+    display: flex;
+    gap: .8rem;
+    overflow-x: auto;
+    flex: 1.5;
+    padding-bottom: .5rem;
+}
+
+.qsys-screenshots::-webkit-scrollbar {
+    height: 3px;
+}
+
+.qsys-screenshots::-webkit-scrollbar-thumb {
+    background: var(--mainColor2);
+}
+
+.qsys-screenshots img {
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: .1vw solid var(--mainColor2);
+    transition: border-color .2s ease;
+}
+
+.qsys-screenshots img:hover {
+    border-color: var(--accentColor1);
+    cursor: pointer;
+}
+
+.qsys-writeup {
+    flex: 1;
+    border-left: 1px solid var(--mainColor2);
+    padding-left: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.qsys-writeup h2 {
+    color: var(--accentColor1);
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.qsys-writeup p {
+    margin: 0;
+    color: var(--textColor);
+    font-size: clamp(.8rem, 1.2vw, 1rem);
+    line-height: 1.6;
+}
+
+.qsys-writeup code {
+    background: #ffffff15;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+.qsys-tags {
+    color: var(--mainColor2);
+    font-size: .85rem;
+    letter-spacing: .08em;
+}
