@@ -84,3 +84,24 @@ if (window.location.hash === '#projects') {
     messageEl.classList.remove('show');
     aboutContent.classList.add('show');
 }
+window.addEventListener('popstate', () => {
+    if (window.location.hash === '#projects') {
+        aboutContent.classList.remove('show');
+        aboutBtnContainer.classList.add('slideOut');
+        projectsBtnContainer.classList.add('slideOut');
+        messageEl.classList.remove('show');
+        projectsContainer.classList.add('show');
+    } else if (window.location.hash === '#about') {
+        projectsContainer.classList.remove('show');
+        aboutBtnContainer.classList.add('slideOut');
+        projectsBtnContainer.classList.add('slideOut');
+        messageEl.classList.remove('show');
+        aboutContent.classList.add('show');
+    } else {
+        aboutContent.classList.remove('show');
+        projectsContainer.classList.remove('show');
+        aboutBtnContainer.classList.remove('slideOut');
+        projectsBtnContainer.classList.remove('slideOut');
+        messageEl.classList.add('show');
+    }
+});
