@@ -16,7 +16,6 @@ body {
     margin: 0;
     color: var(--textColor);
     font-family: 'Mohave', sans-serif;
-    /* border: .5vw solid var(--mainColor2);    */
 }
 
 header, footer {
@@ -33,7 +32,6 @@ header{
 main {
     min-height: 70vh;
     background-color: var(--mainColor1);
-   
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -43,15 +41,6 @@ footer {
     min-height: 10vh;
     justify-content: left;    
 }
-
-/* header specifics */
-
-
-
-
-
-/* main specifics */
-
 
 /* main content containers styling */
 
@@ -66,7 +55,7 @@ footer {
     justify-content: center;
     padding: 11vw;
     margin: 0 2vw;  
-    animation: slideInLeftCenter 1s ease-in-out ; 
+    animation: slideInLeftCenter 1s ease-in-out;
 }
 
 .aboutContent,
@@ -89,20 +78,20 @@ footer {
 .closeBtn::after {
     content: '';
     display: block;
-    width: 100%; /* Adjust the width to control the length of the line */
-    height: .1vw; /* Adjust the height to control the thickness of the line */
-    background-color: aliceblue; /* Set the line color */
+    width: 100%;
+    height: .1vw;
+    background-color: aliceblue;
     position: absolute;
     transform: rotate(135deg);
 }
 .closeBtn::before {
     content: '';
     display: block;
-    width: 100%; /* Adjust the width to control the length of the line */
-    height: .1vw; /* Adjust the height to control the thickness of the line */
-    background-color: aliceblue; /* Set the line color */
+    width: 100%;
+    height: .1vw;
+    background-color: aliceblue;
     position: absolute;
-    transform: rotate(-135deg) ;
+    transform: rotate(-135deg);
 } 
 .closeBtn:hover::before,
 .closeBtn:hover::after {
@@ -130,25 +119,26 @@ footer {
     align-items: center;  
 }
 
-.projectsContainer.show  {
-    display: grid;
+.projectsContainer.show {
+    display: flex;
+    flex-direction: column;
     width: 90vw;
-    grid-template-columns: 1fr 1fr;
+    padding: 2vw;
+    margin: 0;
+    gap: 1.5rem;
 }
 
 .project {
     border: .3vw solid var(--mainColor2);
 }
 
-
-
 /* buttons styling */
 
 .projectsBtnContainer {
-    margin-left: auto;/* pushing about and projects to left and right  */
+    margin-left: auto;
 }
 .aboutBtnContainer {
-    margin-right: auto;/* pushing about and projects to left and right  */
+    margin-right: auto;
 }
 
 .aboutBtnContainer,
@@ -177,7 +167,7 @@ footer {
 
 .aboutBtnContainer h3,
 .projectsBtnContainer h3 {
-    border: .1vw solid #373737;;
+    border: .1vw solid #373737;
     padding: 1vw 5vw;
     margin: 0;
     min-width: max(100px, 20vw);
@@ -187,12 +177,12 @@ footer {
 
 .aboutBtnContainer h3 {  
    transform: translateX(-.6vw); 
-   animation: slideInBottomUp 1s ease ;  
+   animation: slideInBottomUp 1s ease;  
 }
 
 .projectsBtnContainer h3 {
     transform: translateX(.6vw);  
-    animation: slideInTopDown 1s ease ; 
+    animation: slideInTopDown 1s ease; 
 }
 
 .aboutBtnContainer h3:hover,
@@ -200,34 +190,27 @@ footer {
     background-color:#F2F2F215; 
     cursor: pointer;
     transform: translateX(0);
-    border-color:  #BF7B3F33;
-  
+    border-color: #BF7B3F33;
 }
 
-/* test */
-.lineDecorationContainer {
+/* line decoration */
 
-    /* border: 1px solid white; */
-   
+.lineDecorationContainer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 50vw;
     height: 50vw;
-
 }
+
 .line{
-   
     position: relative;
     width: 100%;
     height: 100%; 
-    
 }
 
 .line::before{
@@ -236,43 +219,36 @@ footer {
     width: 1px;
     height: 0;
     background-color: var(--mainColor1);
-    opacity: .4;
     position: absolute;
-    top: 0; /* Position the line at the bottom of the container */
-    left: 0; /* Adjust the starting point of the line */
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: 1s ease-in;
     animation: rotateLines 2s ease-in-out infinite alternate;
-   
 }
+
 .line::after{
     content: '';
     display: block;
     width: 1px;
-    height: 0; /* Adjust the height to control the thickness of the line */
+    height: 0;
     background-color: var(--mainColor1);
-    opacity: .3;
     position: absolute;
-    top: 0; /* Position the line at the bottom of the container */
-    right: 50%; /* Adjust the starting point of the line */
+    top: 0;
+    right: 50%;
     opacity: 0;
     transition: 1s ease-in-out;
     animation: rotateLines 3s 2s ease-in-out infinite alternate;
-   
 } 
 
 .line.show:before {
    opacity: .4;
-   
    height: 100%;
-  
 }
 .line.show:after {
    opacity: .4;
    height: 100%;
 }
-/* test */
-
 
 /* footer */
 
@@ -289,106 +265,9 @@ footer i {
 footer i:hover {
     cursor: pointer;
     color: var(--accentColor1);
-    /* opacity: .3; */
 }
 
-@keyframes rotateLines {
-    from {
-        height: 0;
-    
-        transform-origin: 0;
-      
-    }
-    to {
-        height: 100%;
-       transform-origin: 50%;
-     
-        background-color: #BF7B3F33;
-        
-    }
-    
-}
-
-@keyframes slideInTopDown { /* animating about on the load  */
-    from {
-        opacity: 0;
-        transform: translateY(-1000%);
-    }
-    80% {
-        transform: translateY(0) translateX(0); 
-        opacity: .8;
-    }
-    to {
-        transform: translateY(0) translateX(.6vw); 
-        opacity: 1;
-    }
-}
-@keyframes slideInBottomUp {
-    from {
-        transform: translateY(1000%);
-        opacity: 0;
-    }
-    80% {
-        transform: translateY(0) translateX(0); 
-        opacity: .8;
-    }
-    to {
-        transform: translateY(0) translateX(-.6vw); 
-        opacity: 1;
-    }
-}
-@keyframes slideInLeftCenter { 
-    from {
-        transform: translateX(-100%);   
-        opacity: 0;
-    } 
-    to {
-        transform: translateX(0);
-        opacity: 1;  
-    }
-}
-@keyframes slideOutL { 
-    from {
-
-    }
-    to {
-        transform: translateX(-130%);
-    }
-}
-@keyframes slideInR {
-    from {
-        transform: translateX(-100%);
-    } to {
-        transform: translateX(0);
-    }
-}
-@keyframes slideInL {
-    from {
-        transform: translateX(100%);
-    } to {
-        transform: translateX(0);
-    }
-}
-@keyframes slideOutR {
-    from {
-
-    }
-    to {
-        transform: translateX(200%);
-    }
-}
-
-
-
-/* changes */
-
-.projectsContainer.show {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    padding: 2vw;
-    gap: 1.5rem;
-}
+/* project section */
 
 .qsys-video {
     width: 100%;
@@ -466,6 +345,14 @@ footer i:hover {
     border-radius: 3px;
 }
 
+.qsys-tags {
+    color: var(--mainColor2);
+    font-size: .85rem;
+    letter-spacing: .08em;
+}
+
+/* mobile */
+
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
@@ -502,8 +389,87 @@ footer i:hover {
     }
 }
 
-.qsys-tags {
-    color: var(--mainColor2);
-    font-size: .85rem;
-    letter-spacing: .08em;
+/* keyframes */
+
+@keyframes rotateLines {
+    from {
+        height: 0;
+        transform-origin: 0;
+    }
+    to {
+        height: 100%;
+        transform-origin: 50%;
+        background-color: #BF7B3F33;
+    }
+}
+
+@keyframes slideInTopDown {
+    from {
+        opacity: 0;
+        transform: translateY(-1000%);
+    }
+    80% {
+        transform: translateY(0) translateX(0); 
+        opacity: .8;
+    }
+    to {
+        transform: translateY(0) translateX(.6vw); 
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottomUp {
+    from {
+        transform: translateY(1000%);
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(0) translateX(0); 
+        opacity: .8;
+    }
+    to {
+        transform: translateY(0) translateX(-.6vw); 
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeftCenter { 
+    from {
+        transform: translateX(-100%);   
+        opacity: 0;
+    } 
+    to {
+        transform: translateX(0);
+        opacity: 1;  
+    }
+}
+
+@keyframes slideOutL { 
+    from {}
+    to {
+        transform: translateX(-130%);
+    }
+}
+
+@keyframes slideInR {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInL {
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutR {
+    from {}
+    to {
+        transform: translateX(200%);
+    }
 }
