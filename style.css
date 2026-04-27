@@ -466,6 +466,36 @@ footer i:hover {
     border-radius: 3px;
 }
 
+@media (max-width: 768px) {
+    .projectsContainer.show {
+        width: 100vw;
+        padding: 4vw;
+        gap: 1rem;
+    }
+
+    .qsys-video iframe {
+        height: 30vh;
+    }
+
+    .qsys-bottom {
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .qsys-screenshots {
+        flex: none;
+        height: 120px;
+    }
+
+    .qsys-writeup {
+        border-left: none;
+        border-top: 1px solid var(--mainColor2);
+        padding-left: 0;
+        padding-top: 1rem;
+    }
+}
+
 .qsys-tags {
     color: var(--mainColor2);
     font-size: .85rem;
