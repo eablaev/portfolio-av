@@ -29,12 +29,14 @@ header{
     min-height: 20vh;
 }
 
+
 main {
     min-height: 70vh;
     background-color: var(--mainColor1);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 footer {
