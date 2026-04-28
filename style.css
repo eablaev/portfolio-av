@@ -11,6 +11,11 @@
 
 /* general */
 
+html {
+    font-size: 22px;
+}
+
+
 body { 
     padding: 0;
     margin: 0;
@@ -147,6 +152,7 @@ footer {
 .projectsBtnContainer {
     display: flex;
     align-items: center;  
+    
 }
 
 .aboutBtnContainer.slideOut {
@@ -169,12 +175,16 @@ footer {
 
 .aboutBtnContainer h3,
 .projectsBtnContainer h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: .1vw solid #373737;
     padding: 1vw 5vw;
     margin: 0;
     min-width: max(100px, 20vw);
     text-align: center;
     transition: .1s ease-in-out;
+    
 }
 
 .aboutBtnContainer h3 {  
@@ -284,7 +294,7 @@ footer i:hover {
 .qsys-bottom {
     display: flex;
     gap: 1.5rem;
-    height: 30vh;
+    height: 50vh;
 }
 
 .qsys-screenshots {
@@ -292,17 +302,21 @@ footer i:hover {
     gap: .8rem;
     overflow-x: auto;
     flex: 1.5;
-    padding-bottom: .5rem;
+    padding-bottom: 1rem;
 }
 
 .qsys-screenshots::-webkit-scrollbar {
-    height: 3px;
+    height: 8px;
 }
 
 .qsys-screenshots::-webkit-scrollbar-thumb {
     background: var(--mainColor2);
+    border-radius: 4px;
 }
-
+.qsys-screenshots::-webkit-scrollbar-track {
+    background: #ffffff10;
+    border-radius: 4px;
+}
 .qsys-screenshots img {
     height: 100%;
     width: auto;
